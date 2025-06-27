@@ -1,0 +1,105 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Animated Portfolio</title>
+  <style>
+    :root {
+      --bg-light: #ffffff;
+      --text-light: #1f2937;
+      --bg-dark: #111827;
+      --text-dark: #f9fafb;
+    }body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-light);
+  color: var(--text-light);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  transition: all 0.5s ease;
+}
+
+body.dark {
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+.welcome {
+  font-size: 2.5rem;
+  font-weight: bold;
+  animation: slideDown 1s ease-out;
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.projects {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.card {
+  background: #e5e7eb;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  width: 200px;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+body.dark .card {
+  background: #1f2937;
+}
+
+  </style>
+</head>
+<body>
+  <div class="welcome" id="welcome-message">Welcome to My Portfolio ✨</div>
+  <p style="text-align:center; max-width: 600px; margin-top: 1rem;">
+    I’m Bob – a Web2/Web3 developer, AI creator, and future tech leader.
+  </p>  <div class="projects">
+    <div class="card">
+      <h3>Project 1</h3>
+      <p>Short description of the project goes here. Built with passion.</p>
+    </div>
+    <div class="card">
+      <h3>Project 2</h3>
+      <p>Short description of the project goes here. Built with passion.</p>
+    </div>
+    <div class="card">
+      <h3>Project 3</h3>
+      <p>Short description of the project goes here. Built with passion.</p>
+    </div>
+  </div>  <script>
+    let dark = false;
+    const toggleTheme = () => {
+      dark = !dark;
+      document.body.classList.toggle('dark', dark);
+    };
+
+    setInterval(toggleTheme, 10000);
+
+    // Welcome animation
+    window.addEventListener('DOMContentLoaded', () => {
+      const msg = document.getElementById('welcome-message');
+      msg.style.animation = 'slideDown 1s ease-out';
+    });
+  </script></body>
+</html>
